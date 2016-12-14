@@ -1,0 +1,184 @@
+.popover {
+    max-width: 500px;
+}
+.popover-content {
+    padding: 9px 8px;
+}
+.popover-title {
+    background: transparent;
+    border:none;
+    padding-top: 7px;
+}
+.popover-content {
+    margin-top: 15px;
+}
+.calendar-wrapper {
+    padding-bottom: 90px;
+}
+.header {
+    box-shadow:0 0 5px #777;
+    background: #F4F4F4;
+    padding: 50px 0px 8px;
+    border: 1px solid #dedede;
+    margin-bottom: 15px;
+}
+.fc-day.has-events {
+    background: #c2e4fe;
+}
+.fc-day-header {
+    color:#555;
+    font-weight: normal;
+}
+.fc-day-header:first-letter {
+    text-transform: uppercase;
+}
+.fc-today{
+    background: #F4F4F4 !important;
+}
+.fc-event .event-rendered {
+    padding: 2px;
+}
+.fc-event .event-rendered .event-title {
+    font-weight: bold;
+    font-size: 12px;
+}
+.fc-event .event-rendered .event-members {
+    font-size: 11px;
+}
+.flat.btn{
+    background: #0271C7;
+    border-radius: 1px;
+    font-weight: bold;
+}
+.fc-toolbar h2 {
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 1.8;
+}
+.fc-toolbar .fc-button {
+    padding: 0 0.2em;
+}
+.fc-toolbar .fc-prev-button,.fc-toolbar .fc-next-button {
+    margin-left: 0 !important;
+    background:none;
+}
+.fc-toolbar .fc-prev-button .fc-icon,.fc-toolbar .fc-next-button .fc-icon {
+    font-size:13px;
+}
+.fc-event:hover {
+    cursor: pointer;
+}
+.fc-day-number {
+    color: #777 !important;
+}
+.fc-highlight-skeleton table {
+    border-collapse:separate !important;
+}
+.fc-highlight {
+    border: 2px solid #0271C7 !important;
+}
+.fc-today.selected{
+    background: transparent!important;
+}
+.fc-ltr .fc-basic-view .fc-day-number {
+    text-align: left;
+}
+.fc-toolbar h2 {
+    margin-left: 0 !important;
+}
+.fc-today-button {
+    margin-left: 15px !important;
+}
+.fc-toolbar h2:first-letter {
+    text-transform: uppercase;
+}
+.search-events-container {
+    min-width: 200px;
+    max-height: 330px;
+    overflow-y: auto;
+}
+ul.search-events-list {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+}
+.search-item {
+    padding: 3px;
+    border-bottom: 1px solid #dedede;
+    font-size: 13px;
+    font-weight: bold;
+}
+.search-item:last-child {
+    border-bottom: none;
+}
+.search-item:hover, .search-item:hover * {
+    background: #27A1FF;
+    color: #fff !important;
+    cursor: pointer;
+}
+.search-item-title {
+    padding-bottom: 2px;
+}
+.search-item-date {
+    font-weight: normal;
+    color:#555;
+    font-size: 12px;
+}
+.search-box {
+    width: 82%;
+    float: right;
+    position: relative;
+}
+.search-box .input-group-addon{
+    background:none;
+    border: none;
+}
+.search-box .glyphicon {
+    font-size: 16px;
+    color: #B9B9B9;
+}
+.search-box .clear-input:hover {
+    color: #999;
+}
+.search-box .clear-input {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    z-index: 10;
+    font-size: 14px !important;
+    cursor: pointer;
+}
+.search-box input {
+    border-radius: 2px !important;
+    box-shadow: 0 1px 1px #777 inset;
+}
+.event-description {
+    height: 125px !important;
+}
+.quick-event-input, .event-description {
+    width: 270px;
+}
+.popover-content form {
+    padding: 0 20px;
+}
+form .event-title {
+    font-weight: bold;
+    font-size: 17px;
+}
+form .event-date {
+    margin-top: 8px;
+    font-size: 13px;
+}
+form .event-members-label {
+    color: #666;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+form .event-members {
+    color: #333;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}

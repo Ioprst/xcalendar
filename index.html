@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+
+    <link rel="stylesheet" href="vendor/fullcalendar/fullcalendar.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script defer type="text/javascript" src="vendor/jquery/jquery-2.2.3.min.js"></script>
+    <script defer type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <script defer type="text/javascript" src="vendor/fullcalendar/fullcalendar.js"></script>
+    <script defer type="text/javascript" src="vendor/fullcalendar/ru.js"></script>
+    <script defer type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script defer type="text/javascript" src="vendor/underscore/underscore-min.js"></script>
+
+    <script defer type="text/javascript" src="js/storage.js"></script>
+    <script defer type="text/javascript" src="js/calendar.js"></script>
+    <script defer type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <button id="add-event" type="button" class="btn flat btn-primary">Добавить</button>
+                    <button id="edit-event" type="button" class="btn flat btn-primary">Обновить</button>
+                </div>
+                <div class="col-sm-4">
+                    <div class="search-box form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </div>
+                            <input type="text" placeholder="Событие, дата или участник" id="search-event" class="form-control">
+                            <span class="clear-input glyphicon glyphicon-remove"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calendar-wrapper">
+        <div class="container">
+            <div id="calendar"></div>
+         </div>
+    </div>
+
+    <!--событие в календаре-->
+    <script id="event-render-template" type="text/template">
+        <div class="event-rendered">
+            <span class="event-title"><%=event.time ? event.time : '' %> <%=event.title%></span><br>
+            <span class="event-members"><%=event.members%></span>
+        </div>
+    </script>
+
+    <!--форма быстрого добавления события-->
+    <script id="quick-add-event-form-template" type="text/template">
+       <form id="quick-add-event-form">
+           <div class="form-group">
+               <input required type="text" placeholder="25 июля, 16:30, День рождения" name="event" class="quick-event-input form-control input">
+           </div>
+           <button type="submit"><em class="icon-ok"></em>Создать</button>
+       </form>
+    </script>
+
+    <!--форма простого добавления события-->
+    <script id="add-event-form-template" type="text/template">
+        <form class="edit-event-form">
+            <div>
+                <label>
+                    <span id="event-date"><%=humanDate%></span>
+                    <input type="hidden" name="event-date"  value="<%=date%>" class="form-control input-md">
+                    <input type="hidden" name="id" value="" class="form-control input-md">
+                </label>
+                <div class="form-group">
+                    <input type="text" required  placeholder="Событие" name="name" class="form-control input-md">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="members" placeholder="Имена участников" class="form-control input-md">
+                </div>
+                <div class="form-group">
+                    <textarea rows="3" name="description" placeholder="Описание" class="event-description form-control input-md"></textarea>
+                </div>
+                <button id="save-event" type="submit"><em class="icon-ok"></em>Сохранить</button>
+            </div>
+        </form>
+    </script>
+
+    <!--форма редактирования события-->
+    <script id="edit-event-form-template" type="text/template">
+        <form class="edit-event-form">
+            <div>
+                <div class="form-group">
+                    <div class="event-title"><%=title%></div>
+                    <div class="event-date"><%=humanDate%> <%=time ? time : '' %></div>
+                    <input type="hidden" name="id" value="<%=id%>" class="form-control input-md">
+                </div>
+                <div class="form-group">
+                    <%if (members){%>
+                        <label class="event-members-label" for="member">Участники</label>
+                        <div class="event-members"><%=members%></div>
+                    <%}else{%>
+                        <input type="text" name="members" placeholder="Имена участников" class="form-control input-md">
+                    <%}%>
+                </div>
+                <div class="form-group">
+                    <textarea rows="3" name="description" class="event-description form-control input-md" value="<%=description%>" placeholder="Описание"><%=description%></textarea>
+                </div>
+                <button type="submit" ><em class="icon-ok"></em>Готово</button>
+                <button data-id="<%=id%>" type="button" class="delete-event"><em class="icon-ok"></em>Удалить</button>
+            </div>
+        </form>
+    </script>
+
+    <!--окно с результатом поиска событий-->
+    <script id="search-events-results-template" type="text/template">
+        <div class="search-events-container">
+            <ul class="search-events-list">
+                <%
+                    for (var i = 0; i < events.length; i++) {%>
+                        <li data-id="<%=events[i].id%>" class="search-item">
+                            <div class="search-item-title"><%=events[i].title %></div>
+                            <div class="search-item-date"><%=events[i].humanStart %></div>
+                        </li>
+                    <%}
+                %>
+            </ul>
+        </div>
+    </script>
+</body>
+</html>
